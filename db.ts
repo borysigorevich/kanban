@@ -13,9 +13,6 @@ module.exports = {
 		{ id: 1, title: 'Todo', board_id: 1 },
 		{ id: 2, title: 'Doing', board_id: 1 },
 		{ id: 3, title: 'Done', board_id: 1 },
-		{ id: 4, title: 'Todo', board_id: 2 },
-		{ id: 5, title: 'Doing', board_id: 2 },
-		{ id: 6, title: 'Done', board_id: 2 },
 	],
 	tasks: [
 		{
