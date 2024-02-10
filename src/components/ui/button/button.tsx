@@ -30,6 +30,7 @@ type ButtonProps = {
 	onClick?: () => void;
 	className?: string;
 	type?: 'button' | 'submit' | 'reset';
+	showSkeleton?: boolean;
 } & VariantProps<typeof buttonVariants>;
 
 export const Button = ({
@@ -41,6 +42,7 @@ export const Button = ({
 	size,
 	onClick,
 	type = 'button',
+	showSkeleton,
 }: ButtonProps) => {
 	return (
 		<button
@@ -52,7 +54,8 @@ export const Button = ({
 					color,
 					size,
 					className,
-				})
+				}),
+				{ 'animate-pulse bg-slate-700 text-transparent': showSkeleton }
 			)}
 		>
 			{children}

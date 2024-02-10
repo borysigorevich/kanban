@@ -22,6 +22,7 @@ type TypographyProps = {
 	component?: 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 	children: ReactNode;
 	className?: string;
+	showSkeleton?: boolean;
 } & VariantProps<typeof typographyVariants>;
 
 export const Typography = ({
@@ -29,7 +30,12 @@ export const Typography = ({
 	children,
 	variant,
 	className,
+	showSkeleton,
 }: TypographyProps) => {
+	if (showSkeleton) {
+		return <div className={'h-10 w-24 animate-pulse rounded bg-slate-700'} />;
+	}
+
 	return createElement(
 		component,
 		{
