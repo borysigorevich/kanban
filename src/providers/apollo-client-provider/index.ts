@@ -1,1 +1,1 @@
-export * from './apollo-client-provider.tsx'
+export * from './apollo-client-provider.tsx';
