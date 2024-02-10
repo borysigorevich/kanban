@@ -6,7 +6,6 @@ export const Sidebar = () => {
 	return (
 		<div className="h-full w-[300px] border-r  border-solid border-dark bg-gray-dark p-8">
 			<Logo />
-
 			<Boards />
 		</div>
 	);

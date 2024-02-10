@@ -5,7 +5,6 @@ export const QUERY_ALL_BOARDS = gql`
 		allBoards {
 			id
 			title
-			description
 		}
 	}
 `;

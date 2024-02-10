@@ -3,12 +3,10 @@ module.exports = {
 		{
 			id: 1,
 			title: 'Project Alpha',
-			description: 'Description for Project Alpha',
 		},
 		{
 			id: 2,
 			title: 'Project Beta',
-			description: 'Description for Project Beta',
 		},
 	],
 	columns: [

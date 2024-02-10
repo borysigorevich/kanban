@@ -5,10 +5,9 @@ import React from 'react';
 type BoardItemProps = {
 	id: string;
 	title: string;
-	description: string;
 };
 
-export const BoardItem = ({ title, id, description }: BoardItemProps) => {
+export const BoardItem = ({ title, id }: BoardItemProps) => {
 	return (
 		<li className="group -ml-8 flex cursor-pointer items-center gap-4 rounded-r-full py-4 pl-8 transition hover:bg-purple">
 			<Board />

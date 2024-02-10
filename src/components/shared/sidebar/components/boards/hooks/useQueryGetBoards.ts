@@ -6,7 +6,7 @@ type ResponseType = {
 	allBoards: Board[];
 };
 
-export const useGetBoards = () => {
+export const useQueryGetBoards = () => {
 	const { data, loading } = useQuery<ResponseType, QueryAllBoardsArgs>(
 		QUERY_ALL_BOARDS
 	);

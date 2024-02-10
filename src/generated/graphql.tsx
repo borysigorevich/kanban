@@ -25,14 +25,11 @@ export type Scalars = {
 
 export type Board = {
 	__typename?: 'Board';
-	description: Scalars['String']['output'];
 	id: Scalars['ID']['output'];
 	title: Scalars['String']['output'];
 };
 
 export type BoardFilter = {
-	description?: InputMaybe<Scalars['String']['input']>;
-	description_neq?: InputMaybe<Scalars['String']['input']>;
 	id?: InputMaybe<Scalars['ID']['input']>;
 	id_neq?: InputMaybe<Scalars['ID']['input']>;
 	ids?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
@@ -42,7 +39,6 @@ export type BoardFilter = {
 };
 
 export type BoardInput = {
-	description: Scalars['String']['input'];
 	title: Scalars['String']['input'];
 };
 
@@ -95,7 +91,6 @@ export type Mutation = {
 };
 
 export type MutationCreateBoardArgs = {
-	description: Scalars['String']['input'];
 	title: Scalars['String']['input'];
 };
 
@@ -138,7 +133,6 @@ export type MutationRemoveTaskArgs = {
 };
 
 export type MutationUpdateBoardArgs = {
-	description?: InputMaybe<Scalars['String']['input']>;
 	id: Scalars['ID']['input'];
 	title?: InputMaybe<Scalars['String']['input']>;
 };

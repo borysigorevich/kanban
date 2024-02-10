@@ -3,7 +3,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 import React, { ReactNode } from 'react';
 
 const buttonVariants = cva(
-	'text-white font-bold outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 transition duration-200 cursor-pointer',
+	'text-white font-bold disabled:bg-gray-600 disabled:text-white/75 disabled:cursor-default outline-none w-full focus:ring-2 focus:ring-inset focus:ring-indigo-600 transition duration-200 cursor-pointer',
 	{
 		variants: {
 			size: {
@@ -29,6 +29,7 @@ type ButtonProps = {
 	disabled?: boolean;
 	onClick?: () => void;
 	className?: string;
+	type?: 'button' | 'submit' | 'reset';
 } & VariantProps<typeof buttonVariants>;
 
 export const Button = ({
@@ -39,11 +40,13 @@ export const Button = ({
 	isLoading,
 	size,
 	onClick,
+	type = 'button',
 }: ButtonProps) => {
 	return (
 		<button
 			onClick={onClick}
 			disabled={disabled || isLoading}
+			type={type}
 			className={cn(
 				buttonVariants({
 					color,
