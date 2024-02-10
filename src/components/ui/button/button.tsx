@@ -3,7 +3,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 import React, { ReactNode } from 'react';
 
 const buttonVariants = cva(
-	'text-white font-bold outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 transition duration-200',
+	'text-white font-bold outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 transition duration-200 cursor-pointer',
 	{
 		variants: {
 			size: {
