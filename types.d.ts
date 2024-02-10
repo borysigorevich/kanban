@@ -1,3 +1,5 @@
+type Status = 'Todo' | 'Doing' | 'Done';
+
 interface Board {
 	id: number;
 	title: string;

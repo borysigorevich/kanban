@@ -12,7 +12,6 @@ export const QUERY_BOARD = gql`
 					title
 					description
 					status
-					subtasks
 				}
 			}
 		}

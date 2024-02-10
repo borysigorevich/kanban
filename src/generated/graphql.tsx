@@ -12,7 +12,6 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
-  JSON: { input: any; output: any; }
 };
 
 export type Board = {
@@ -114,7 +113,6 @@ export type MutationCreateTaskArgs = {
   column_id: Scalars['ID']['input'];
   description: Scalars['String']['input'];
   status: Scalars['String']['input'];
-  subtasks: Scalars['JSON']['input'];
   title: Scalars['String']['input'];
 };
 
@@ -153,7 +151,6 @@ export type MutationUpdateTaskArgs = {
   description?: InputMaybe<Scalars['String']['input']>;
   id: Scalars['ID']['input'];
   status?: InputMaybe<Scalars['String']['input']>;
-  subtasks?: InputMaybe<Scalars['JSON']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -242,7 +239,6 @@ export type Task = {
   description: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   status: Scalars['String']['output'];
-  subtasks: Scalars['JSON']['output'];
   title: Scalars['String']['output'];
 };
 
@@ -259,8 +255,6 @@ export type TaskFilter = {
   q?: InputMaybe<Scalars['String']['input']>;
   status?: InputMaybe<Scalars['String']['input']>;
   status_neq?: InputMaybe<Scalars['String']['input']>;
-  subtasks?: InputMaybe<Scalars['JSON']['input']>;
-  subtasks_neq?: InputMaybe<Scalars['JSON']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   title_neq?: InputMaybe<Scalars['String']['input']>;
 };
@@ -270,6 +264,5 @@ export type TaskInput = {
   column_id: Scalars['ID']['input'];
   description: Scalars['String']['input'];
   status: Scalars['String']['input'];
-  subtasks: Scalars['JSON']['input'];
   title: Scalars['String']['input'];
 };

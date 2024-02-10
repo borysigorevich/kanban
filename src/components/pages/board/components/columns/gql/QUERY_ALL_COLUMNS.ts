@@ -9,7 +9,6 @@ export const QUERY_ALL_COLUMNS = gql`
 			Tasks {
 				id
 				title
-				subtasks
 				status
 				column_id
 				board_id
