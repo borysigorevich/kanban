@@ -1,7 +1,7 @@
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 import * as UiSelect from '@radix-ui/react-select';
 import { cn } from '@utils/cn.ts';
-import React, { ComponentRef } from 'react';
+import React, { ComponentRef, useId, useLayoutEffect, useRef, useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 
 type UiSelectItemProps = {
@@ -26,12 +26,40 @@ const UiSelectItem = React.forwardRef<ComponentRef<'div'>, UiSelectItemProps>(
 	}
 );
 
-type SelectProps = {
-	name: string;
+export type OptionType = {
+	label: string;
+	value: string;
 };
 
-export const Select = ({ name }: SelectProps) => {
+type SelectProps = {
+	name: string;
+	options: OptionType[];
+	label?: string;
+	className?: string;
+	wrapperClassName?: string;
+	placeholder?: string;
+};
+
+export const Select = ({
+	name,
+	options,
+	label,
+	className,
+	wrapperClassName,
+	placeholder,
+}: SelectProps) => {
 	const { control } = useFormContext();
+
+	const id = useId();
+
+	const [contentWidth, setContentWidth] = useState<number | null>(null);
+	const triggerButtonRef = useRef<ComponentRef<'button'>>(null);
+
+	useLayoutEffect(() => {
+		if (triggerButtonRef.current) {
+			setContentWidth(triggerButtonRef.current.offsetWidth);
+		}
+	}, []);
 
 	return (
 		<Controller
@@ -39,32 +67,53 @@ export const Select = ({ name }: SelectProps) => {
 			control={control}
 			render={({ field }) => (
 				<UiSelect.Root onValueChange={field.onChange} value={field.value}>
-					<UiSelect.Trigger
-						className="flex w-[200px] items-center justify-between rounded bg-transparent px-4 py-2 text-[13px] leading-[23px] text-white outline-none ring-1 ring-inset
-					ring-white/25 transition duration-200 focus:ring-2 focus:ring-inset focus:ring-indigo-600 data-[state=open]:ring-purple"
-					>
-						<UiSelect.Value placeholder="UiSelect a fruit…" />
-						<UiSelect.Icon>
-							<ChevronDownIcon />
-						</UiSelect.Icon>
-					</UiSelect.Trigger>
-					<UiSelect.Portal>
-						<UiSelect.Content
-							className="w-[200px] overflow-hidden rounded-md bg-gray-very-dark p-1"
-							align={'center'}
-							side={'bottom'}
-							position={'popper'}
-							sideOffset={8}
+					<div className={wrapperClassName}>
+						{label && (
+							<label
+								htmlFor={id}
+								className="text-[12px] font-bold text-white"
+							>
+								{label}
+							</label>
+						)}
+						<UiSelect.Trigger
+							id={id}
+							ref={triggerButtonRef}
+							className={cn(
+								'mt-1 flex w-full items-center justify-between rounded bg-transparent px-4 py-2 text-[13px] leading-[23px] text-white outline-none ring-1 ring-inset ring-white/25 transition duration-200 focus:ring-2 focus:ring-inset focus:ring-indigo-600 data-[state=open]:ring-purple',
+								className
+							)}
 						>
-							<UiSelect.Viewport className={'flex flex-col gap-0.5'}>
-								<UiSelectItem value="apple">Apple</UiSelectItem>
-								<UiSelectItem value="banana">Banana</UiSelectItem>
-								<UiSelectItem value="blueberry">Blueberry</UiSelectItem>
-								<UiSelectItem value="grapes">Grapes</UiSelectItem>
-								<UiSelectItem value="pineapple">Pineapple</UiSelectItem>
-							</UiSelect.Viewport>
-						</UiSelect.Content>
-					</UiSelect.Portal>
+							<UiSelect.Value
+								placeholder={placeholder}
+								className={'text-white/25'}
+							/>
+							<UiSelect.Icon>
+								<ChevronDownIcon />
+							</UiSelect.Icon>
+						</UiSelect.Trigger>
+						<UiSelect.Portal>
+							<UiSelect.Content
+								className="w-full overflow-hidden rounded-md bg-gray-very-dark p-1"
+								align={'center'}
+								side={'bottom'}
+								position={'popper'}
+								sideOffset={8}
+								style={{ width: contentWidth || 100 }}
+							>
+								<UiSelect.Viewport className={'flex flex-col gap-0.5'}>
+									{options.map((option) => (
+										<UiSelectItem
+											key={option.value}
+											value={option.value}
+										>
+											{option.label}
+										</UiSelectItem>
+									))}
+								</UiSelect.Viewport>
+							</UiSelect.Content>
+						</UiSelect.Portal>
+					</div>
 				</UiSelect.Root>
 			)}
 		/>

@@ -1,3 +1,4 @@
+import { AddTask } from '@components/pages/board/components/header/components/add-task';
 import { Button } from '@components/ui/button';
 import { Typography } from '@components/ui/typography';
 import { useGetParams } from '@hooks/useGetParams.ts';
@@ -7,12 +8,12 @@ import React from 'react';
 export const Header = () => {
 	const boardId = useGetParams('boardId');
 
-	const { data, loading } = useQueryGetBoard(boardId);
+	const { board, loading, statuses } = useQueryGetBoard(boardId);
 
-	const title = data?.title;
-	const disabledButton = !loading && !data?.Columns?.length;
+	const title = board?.title;
+	const disabledButton = !loading && !board?.Columns?.length;
 
-	console.log({ data });
+	console.log({ board, statuses });
 
 	return (
 		<div className="border-dar flex items-center justify-between border-b border-solid border-dark bg-gray-dark px-6 py-8">
@@ -23,13 +24,11 @@ export const Header = () => {
 			>
 				{title}
 			</Typography>
-			<Button
-				className="w-fit px-6"
-				disabled={disabledButton}
-				showSkeleton={loading}
-			>
-				+ Add New Task
-			</Button>
+			<AddTask
+				disabledButton={disabledButton}
+				loading={loading}
+				statuses={statuses}
+			/>
 		</div>
 	);
 };
