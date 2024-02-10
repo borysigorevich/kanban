@@ -1,5 +1,5 @@
 import { Board } from '@assets/svg/board.tsx';
-import { useMutationCreateBoard } from '@components/shared/sidebar/components/boards/components/create-board/hooks/useMutationCreateBoard.ts';
+import { useMutationCreateBoard } from '@components/pages/root/components/sidebar/components/boards/components/create-board/hooks/useMutationCreateBoard.ts';
 import { Button } from '@components/ui/button';
 import { Dialog } from '@components/ui/dialog';
 import { TextField } from '@components/ui/text-field';

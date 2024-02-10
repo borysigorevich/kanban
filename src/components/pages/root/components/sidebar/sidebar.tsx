@@ -1,5 +1,5 @@
 import { Logo } from '@assets/svg';
-import { Boards } from '@components/shared/sidebar/components/boards';
+import { Boards } from '@components/pages/root/components/sidebar/components/boards';
 import React from 'react';
 
 export const Sidebar = () => {

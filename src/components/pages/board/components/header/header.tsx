@@ -10,6 +10,9 @@ export const Header = () => {
 	const { data, loading } = useQueryGetBoard(boardId);
 
 	const title = data?.title;
+	const disabledButton = !loading && !data?.Columns?.length;
+
+	console.log({ data });
 
 	return (
 		<div className="border-dar flex items-center justify-between border-b border-solid border-dark bg-gray-dark px-6 py-8">
@@ -20,7 +23,11 @@ export const Header = () => {
 			>
 				{title}
 			</Typography>
-			<Button className="w-fit px-6" disabled={false} showSkeleton={loading}>
+			<Button
+				className="w-fit px-6"
+				disabled={disabledButton}
+				showSkeleton={loading}
+			>
 				+ Add New Task
 			</Button>
 		</div>

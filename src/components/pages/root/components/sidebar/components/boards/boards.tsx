@@ -1,6 +1,6 @@
-import { BoardItem } from '@components/shared/sidebar/components/boards/components/board-item';
-import { CreateBoard } from '@components/shared/sidebar/components/boards/components/create-board';
-import { useQueryGetBoards } from '@components/shared/sidebar/components/boards/hooks/useQueryGetBoards.ts';
+import { BoardItem } from '@components/pages/root/components/sidebar/components/boards/components/board-item';
+import { CreateBoard } from '@components/pages/root/components/sidebar/components/boards/components/create-board';
+import { useQueryGetBoards } from '@components/pages/root/components/sidebar/components/boards/hooks/useQueryGetBoards.ts';
 import { Typography } from '@components/ui/typography';
 import React from 'react';
 
