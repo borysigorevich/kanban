@@ -16,6 +16,9 @@ export default {
 				'gray-very-dark': '#20212C',
 				'purple-light': '#A8A4FF',
 			},
+			transitionDuration: {
+				DEFAULT: '200ms',
+			},
 		},
 	},
 	plugins: [],

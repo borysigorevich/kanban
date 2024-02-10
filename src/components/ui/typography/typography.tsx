@@ -2,7 +2,7 @@ import { cn } from '@utils/cn.ts';
 import { cva, VariantProps } from 'class-variance-authority';
 import { createElement, ReactNode } from 'react';
 
-const typographyVariants = cva('text-gray-dark font-bold', {
+const typographyVariants = cva('text-gray-medium font-bold', {
 	variants: {
 		variant: {
 			'body-m': 'text-[12px] leading-[15px]',

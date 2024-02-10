@@ -15,7 +15,7 @@ export const Checkbox = ({ name, label }: CheckboxProps) => {
 	const id = useId();
 
 	return (
-		<div className="bg-gray-very-dark flex w-full max-w-[350px] items-center rounded p-3 transition duration-200 hover:bg-purple/25">
+		<div className="flex w-full max-w-[350px] items-center rounded bg-gray-very-dark p-3 transition duration-200 hover:bg-purple/25">
 			<Controller
 				name={name}
 				control={control}
@@ -24,7 +24,7 @@ export const Checkbox = ({ name, label }: CheckboxProps) => {
 						id={id}
 						checked={field.value}
 						className={cn(
-							'bg-gray-dark flex h-4  w-4 items-center justify-center rounded-sm  border-red shadow-[0_0_0_1px_rgba(130,143,164,26%)] outline-none',
+							'flex h-4 w-4  items-center justify-center rounded-sm border-red  bg-gray-dark shadow-[0_0_0_1px_rgba(130,143,164,26%)] outline-none',
 							{ 'bg-purple shadow-[unset]': field.value }
 						)}
 						onCheckedChange={field.onChange}
