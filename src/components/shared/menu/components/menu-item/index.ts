@@ -1,1 +1,1 @@
-export * from './ContextMenuItem.tsx';
+export * from './menu-item.tsx';
