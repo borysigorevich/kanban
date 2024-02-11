@@ -4,7 +4,7 @@ import React from 'react';
 
 export const Board = () => {
 	return (
-		<div>
+		<div className={'grid grid-rows-[auto_1fr]'}>
 			<Header />
 			<Columns />
 		</div>
