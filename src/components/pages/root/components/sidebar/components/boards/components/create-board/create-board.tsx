@@ -32,7 +32,7 @@ export const CreateBoard = () => {
 
 	return (
 		<div
-			className="group -ml-8 flex cursor-pointer items-center gap-4 rounded-r-full py-4 pl-8 transition hover:bg-purple"
+			className="group flex cursor-pointer items-center gap-4 rounded-r-full py-4 pl-8 transition hover:bg-purple"
 			onClick={handleOpen}
 		>
 			<Board className={'fill-purple'} />

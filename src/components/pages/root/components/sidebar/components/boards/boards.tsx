@@ -11,10 +11,10 @@ export const Boards = () => {
 
 	return (
 		<div className="mt-14 h-full">
-			<Typography className="uppercase tracking-wide">
+			<Typography className="pl-8 uppercase tracking-wide">
 				All boards ({boards.length})
 			</Typography>
-			<ul className="mt-5 flex h-[calc(100svh-114px)] flex-col gap-1 overflow-y-auto">
+			<ul className="mt-5 flex h-[calc(100svh-114px-20px-19px-32px)] flex-col gap-1 overflow-y-auto pr-8">
 				{boards?.map((board) => <BoardItem key={board.id} {...board} />)}
 				<CreateBoard />
 			</ul>

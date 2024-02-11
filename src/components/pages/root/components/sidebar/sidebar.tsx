@@ -4,8 +4,10 @@ import React from 'react';
 
 export const Sidebar = () => {
 	return (
-		<div className="h-full w-[300px] border-r border-solid border-dark bg-gray-dark p-8">
-			<Logo />
+		<div className="h-full w-[300px] border-r border-solid border-dark bg-gray-dark py-8">
+			<div className="pl-8">
+				<Logo />
+			</div>
 			<Boards />
 		</div>
 	);
