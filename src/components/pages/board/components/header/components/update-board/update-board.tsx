@@ -65,7 +65,11 @@ export const UpdateBoard = ({ title }: EditBoardProps) => {
 					<form className="mt-6" onSubmit={methods.handleSubmit(onSubmit)}>
 						<TextField name={'title'} label={'Board Name'} />
 
-						<Button className={'mt-6'} type={'submit'} disabled={loading}>
+						<Button
+							className={'mt-6'}
+							type={'submit'}
+							disabled={loading || !methods.formState.isDirty}
+						>
 							Save Changes
 						</Button>
 					</form>
