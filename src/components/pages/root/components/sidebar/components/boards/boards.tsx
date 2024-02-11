@@ -10,11 +10,11 @@ export const Boards = () => {
 	if (loading) return null;
 
 	return (
-		<div className="mt-14">
+		<div className="mt-14 h-full">
 			<Typography className="uppercase tracking-wide">
 				All boards ({boards.length})
 			</Typography>
-			<ul className="mt-5 flex flex-col gap-1">
+			<ul className="mt-5 flex h-[calc(100svh-114px)] flex-col gap-1 overflow-y-auto">
 				{boards?.map((board) => <BoardItem key={board.id} {...board} />)}
 				<CreateBoard />
 			</ul>
