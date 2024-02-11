@@ -8,8 +8,8 @@ import React from 'react';
 import { toast } from 'sonner';
 
 type RemoveCardProps = {
-	title: string;
 	id: string;
+	title: string;
 };
 
 export const RemoveTask = ({ title, id }: RemoveCardProps) => {
