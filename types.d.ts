@@ -33,3 +33,8 @@ interface ProjectManagementData {
 	columns: Column[];
 	tasks: Task[];
 }
+
+export interface Statuses {
+	label?: string;
+	value?: string;
+}

@@ -7,7 +7,7 @@ import { Task } from '../../../../../generated/graphql.tsx';
 export const Columns = () => {
 	const boardId = useGetParams('boardId');
 
-	const { loading, columns } = useQueryGetBoard(boardId);
+	const { loading, columns, statuses } = useQueryGetBoard(boardId);
 
 	if (loading) return null;
 
@@ -18,6 +18,7 @@ export const Columns = () => {
 					key={column!.id}
 					title={column!.title}
 					tasks={column!.Tasks as Task[]}
+					statuses={statuses}
 				/>
 			))}
 		</div>
