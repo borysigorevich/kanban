@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Droppable, DroppableProps } from 'react-beautiful-dnd';
 
 export const StrictModeDroppable = ({ children, ...rest }: DroppableProps) => {

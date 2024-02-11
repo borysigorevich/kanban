@@ -5,11 +5,13 @@ import { Dialog } from '@components/ui/dialog';
 import { Typography } from '@components/ui/typography';
 import { useOpen } from '@hooks/useOpen.ts';
 import React from 'react';
+import { Draggable } from 'react-beautiful-dnd';
 import { Statuses } from '../../../../../../../../../../types';
 import { Task } from '../../../../../../../../../generated/graphql.tsx';
 
 type TaskCardProps = {
 	statuses?: Statuses[];
+	index: number;
 } & Task;
 
 export const TaskCard = (props: TaskCardProps) => {
@@ -17,17 +19,26 @@ export const TaskCard = (props: TaskCardProps) => {
 
 	return (
 		<>
-			<div
-				className={'group cursor-pointer rounded-lg bg-gray-dark px-4 py-6'}
-				onClick={handleOpen}
-			>
-				<Typography
-					variant="heading-m"
-					className="text-white group-hover:text-purple"
-				>
-					{props.title}
-				</Typography>
-			</div>
+			<Draggable draggableId={props.id} index={props.index}>
+				{(provided) => (
+					<div
+						className={
+							'group cursor-pointer rounded-lg bg-gray-dark px-4 py-6'
+						}
+						onClick={handleOpen}
+						ref={provided.innerRef}
+						{...provided.draggableProps}
+						{...provided.dragHandleProps}
+					>
+						<Typography
+							variant="heading-m"
+							className="text-white group-hover:text-purple"
+						>
+							{props.title}
+						</Typography>
+					</div>
+				)}
+			</Draggable>
 
 			<Dialog
 				open={isOpen}
