@@ -1,11 +1,14 @@
+import { useMutationCreateTask } from '@components/pages/board/components/header/components/add-task/hooks/useMutationCreateTask.ts';
 import { Button } from '@components/ui/button';
 import { Dialog } from '@components/ui/dialog';
 import { OptionType, Select } from '@components/ui/select';
 import { TextField } from '@components/ui/text-field';
 import { Typography } from '@components/ui/typography';
+import { useGetParams } from '@hooks/useGetParams.ts';
 import { useOpen } from '@hooks/useOpen.ts';
 import React, { useEffect } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 
 type AddTaskProps = {
 	loading: boolean;
@@ -23,6 +26,8 @@ type FormValues = {
 };
 
 export const AddTask = ({ disabledButton, loading, statuses }: AddTaskProps) => {
+	const boardId = useGetParams('boardId');
+
 	const { isOpen, handleOpen, handleClose } = useOpen();
 
 	const methods = useForm<FormValues>({
@@ -33,8 +38,26 @@ export const AddTask = ({ disabledButton, loading, statuses }: AddTaskProps) => 
 		},
 	});
 
+	const onCompleted = () => {
+		handleClose();
+		toast.success('Task created successfully');
+		methods.reset();
+	};
+
+	const { createTask, fetching } = useMutationCreateTask(onCompleted);
+
 	const onSubmit: SubmitHandler<FormValues> = (data) => {
-		console.log({ data });
+		const statusLabel =
+			statuses?.find((status) => status.value === data.status)?.label ||
+			statuses?.[0]?.label ||
+			'doing';
+		createTask({
+			title: data.title,
+			description: data.description,
+			status: statusLabel,
+			board_id: boardId,
+			column_id: data.status,
+		});
 	};
 
 	useEffect(() => {
@@ -91,7 +114,7 @@ export const AddTask = ({ disabledButton, loading, statuses }: AddTaskProps) => 
 							options={statuses as OptionType[]}
 						/>
 
-						<Button type={'submit'} className="mt-6">
+						<Button type={'submit'} className="mt-6" disabled={fetching}>
 							Create Task
 						</Button>
 					</form>

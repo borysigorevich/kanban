@@ -21,6 +21,7 @@ export const CreateBoard = () => {
 	const onCompleted = () => {
 		toast.success('Board created successfully');
 		handleClose();
+		methods.reset();
 	};
 
 	const { createBoard, loading } = useMutationCreateBoard(onCompleted);
