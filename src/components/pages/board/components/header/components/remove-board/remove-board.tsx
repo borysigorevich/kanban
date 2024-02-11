@@ -10,7 +10,11 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 
-export const RemoveBoard = () => {
+type RemoveBoardProps = {
+	title: string;
+};
+
+export const RemoveBoard = ({ title }: RemoveBoardProps) => {
 	const { isOpen, handleOpen, handleClose } = useOpen();
 	const closeDialogWithMenu = useHandleCloseMenu(handleClose);
 	const boardId = useGetParams('boardId');
@@ -48,9 +52,7 @@ export const RemoveBoard = () => {
 				handleDelete={handleDelete}
 				loading={loading}
 				title={'Delete this board?'}
-				description={
-					'Are you sure you want to delete the ‘Platform Launch’ board? This action will remove all columns and tasks and cannot be reversed.'
-				}
+				description={`Are you sure you want to delete the ‘${title}’ board? This action will remove all columns and tasks and cannot be reversed.`}
 			/>
 		</>
 	);

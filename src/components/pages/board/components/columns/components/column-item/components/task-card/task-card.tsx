@@ -1,3 +1,4 @@
+import { RemoveTask } from '@components/pages/board/components/columns/components/column-item/components/task-card/components/remove-task';
 import { UpdateTask } from '@components/pages/board/components/columns/components/column-item/components/task-card/components/update-task';
 import { Menu } from '@components/shared/menu';
 import { Dialog } from '@components/ui/dialog';
@@ -38,7 +39,12 @@ export const TaskCard = (props: TaskCardProps) => {
 				}
 			>
 				<div className={'absolute right-8 top-8'}>
-					<Menu menuItems={[<UpdateTask key={0} {...props} />]} />
+					<Menu
+						menuItems={[
+							<UpdateTask key={0} {...props} />,
+							<RemoveTask key={1} title={props.title} id={props.id} />,
+						]}
+					/>
 				</div>
 
 				<Typography variant={'body-l'} className={'medium-gray mt-6'}>

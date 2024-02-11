@@ -35,7 +35,7 @@ export const Header = () => {
 					<Menu
 						menuItems={[
 							<UpdateBoard title={title} key={0} />,
-							<RemoveBoard key={1} />,
+							<RemoveBoard key={1} title={title || ''} />,
 						]}
 					/>
 				)}
