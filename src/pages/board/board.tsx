@@ -4,7 +4,7 @@ import React from 'react';
 
 export const Board = () => {
 	return (
-		<div className={'grid grid-rows-[auto_1fr]'}>
+		<div className={'grid grid-rows-[104px_calc(100svh-104px)] overflow-hidden'}>
 			<Header />
 			<Columns />
 		</div>

@@ -16,7 +16,7 @@ export const Header = () => {
 	const disabledButton = !loading && !board?.Columns?.length;
 
 	return (
-		<div className="border-dar flex items-center justify-between border-b border-solid border-dark bg-gray-dark px-6 py-8">
+		<div className="border-dar flex h-[104px] items-center justify-between border-b border-solid border-dark bg-gray-dark px-6 py-8">
 			<Typography
 				variant={'heading-xl'}
 				className={'text-white'}

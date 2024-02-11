@@ -20,7 +20,7 @@ export const Columns = () => {
 		<div className={'overflow-hidden'}>
 			{hasColumns ? (
 				<DragDropContext onDragEnd={handleOnDragEnd}>
-					<div className={'flex h-full gap-6 overflow-x-auto p-6'}>
+					<div className={'flex h-full gap-6 overflow-auto p-6'}>
 						{columnsWidthOrderedTasks.map((column, index) => (
 							<ColumnItem
 								key={column!.id}
