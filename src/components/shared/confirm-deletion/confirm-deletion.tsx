@@ -29,20 +29,24 @@ export const ConfirmDeletion = ({
 					{title}
 				</Typography>
 			}
-			description={
+		>
+			<>
 				<Typography variant={'body-l'} className={'mt-6 text-gray-medium'}>
 					{description}
 				</Typography>
-			}
-		>
-			<div className={'mt-6 flex gap-4'}>
-				<Button onClick={handleDelete} color={'destructive'} disabled={loading}>
-					Delete
-				</Button>
-				<Button onClick={handleClose} color={'secondary'} disabled={loading}>
-					Cancel
-				</Button>
-			</div>
+				<div className={'mt-6 flex gap-4'}>
+					<Button
+						onClick={handleDelete}
+						color={'destructive'}
+						disabled={loading}
+					>
+						Delete
+					</Button>
+					<Button onClick={handleClose} color={'secondary'} disabled={loading}>
+						Cancel
+					</Button>
+				</div>
+			</>
 		</Dialog>
 	);
 };
