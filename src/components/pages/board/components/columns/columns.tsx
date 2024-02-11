@@ -16,16 +16,20 @@ export const Columns = () => {
 	const hasColumns = columns.length;
 
 	return (
-		<div className={cn('relative flex flex-1 gap-6 p-6')}>
+		<div className={'overflow-hidden'}>
 			{hasColumns ? (
-				columns.map((column) => (
-					<ColumnItem
-						key={column!.id}
-						title={column!.title}
-						tasks={column!.Tasks as Task[]}
-						statuses={statuses}
-					/>
-				))
+				<div className={cn('flex h-full gap-6 overflow-x-auto p-6')}>
+					{columns.map((column) => (
+						<ColumnItem
+							key={column!.id}
+							id={column!.id}
+							title={column!.title}
+							tasks={column!.Tasks as Task[]}
+							statuses={statuses}
+						/>
+					))}
+					<CreateColumn isColumn />
+				</div>
 			) : (
 				<CreateColumn />
 			)}

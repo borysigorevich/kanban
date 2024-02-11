@@ -6,12 +6,28 @@
 
 @layer base {
 
+
     html, body, #root {
         height: 100svh;
         background: #20212C;
+
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+        scrollbar-color: #9e9e9e transparent;
+
     }
 
     html {
         font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    }
+
+    ::-webkit-scrollbar {
+        width: 7px;
+        height: 7px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #9e9e9e;
+        border-radius: 7px;
     }
 }

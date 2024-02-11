@@ -1,4 +1,4 @@
-import { useMutationRemoveTask } from '@components/pages/board/components/columns/components/column-item/components/task-card/components/remove-task/hooks/useMutationRemoveTask.ts';
+import { useMutationRemoveColumn } from '@components/pages/board/components/columns/components/column-item/components/remove-column/hooks/useMutationRemoveColumn.ts';
 import { ConfirmDeletion } from '@components/shared/confirm-deletion';
 import { useHandleCloseMenu } from '@components/shared/menu';
 import { MenuItem } from '@components/shared/menu/components/menu-item';
@@ -7,19 +7,19 @@ import { QUERY_BOARD } from '@pages/board/gql/QUERY_BOARD.ts';
 import React from 'react';
 import { toast } from 'sonner';
 
-type RemoveCardProps = {
+type RemoveColumnProps = {
 	title: string;
 	id: string;
 };
 
-export const RemoveTask = ({ title, id }: RemoveCardProps) => {
+export const RemoveColumn = ({ title, id }: RemoveColumnProps) => {
 	const { isOpen, handleOpen, handleClose } = useOpen();
 	const closeDialogWithMenu = useHandleCloseMenu(handleClose);
 
-	const { removeTask, loading } = useMutationRemoveTask();
+	const { removeColumn, loading } = useMutationRemoveColumn();
 
 	const handleDelete = () => {
-		removeTask({
+		removeColumn({
 			variables: {
 				id,
 			},
@@ -35,7 +35,7 @@ export const RemoveTask = ({ title, id }: RemoveCardProps) => {
 		<>
 			<MenuItem
 				onClick={handleOpen}
-				content={'Remove Card'}
+				content={'Remove Column'}
 				contentClassName={'text-red group-hover:text-white'}
 				menuItemClassName={'hover:bg-[#ef4444]'}
 			/>
@@ -46,7 +46,7 @@ export const RemoveTask = ({ title, id }: RemoveCardProps) => {
 				handleDelete={handleDelete}
 				loading={loading}
 				title={'Delete this task?'}
-				description={`Are you sure you want to delete the '${title}' task? This action cannot be reversed.`}
+				description={`Are you sure you want to delete the '${title}' column? This action cannot be reversed.`}
 			/>
 		</>
 	);
