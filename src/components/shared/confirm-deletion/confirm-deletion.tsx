@@ -9,6 +9,7 @@ type ConfirmDeletionProps = {
 	handleDelete: () => void;
 	handleClose: () => void;
 	open: boolean;
+	loading?: boolean;
 };
 
 export const ConfirmDeletion = ({
@@ -17,6 +18,7 @@ export const ConfirmDeletion = ({
 	handleDelete,
 	handleClose,
 	description,
+	loading,
 }: ConfirmDeletionProps) => {
 	return (
 		<Dialog
@@ -34,10 +36,10 @@ export const ConfirmDeletion = ({
 			}
 		>
 			<div className={'mt-6 flex gap-4'}>
-				<Button onClick={handleDelete} color={'destructive'}>
+				<Button onClick={handleDelete} color={'destructive'} disabled={loading}>
 					Delete
 				</Button>
-				<Button onClick={handleClose} color={'secondary'}>
+				<Button onClick={handleClose} color={'secondary'} disabled={loading}>
 					Cancel
 				</Button>
 			</div>

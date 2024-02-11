@@ -12,7 +12,7 @@ const buttonVariants = cva(
 			},
 			color: {
 				primary: 'bg-purple hover:bg-purple-light',
-				secondary: 'bg-[#635FC729]  text-purple hover:bg-[#635FC740]',
+				secondary: 'bg-white  text-purple hover:bg-white/75',
 				destructive: 'bg-red hover:bg-red-light',
 			},
 		},

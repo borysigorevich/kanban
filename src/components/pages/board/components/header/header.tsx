@@ -1,11 +1,11 @@
 import { AddTask } from '@components/pages/board/components/header/components/add-task';
+import { RemoveBoard } from '@components/pages/board/components/header/components/remove-board';
 import { UpdateBoard } from '@components/pages/board/components/header/components/update-board';
 import { Menu } from '@components/shared/menu/menu.tsx';
 import { Typography } from '@components/ui/typography';
 import { useGetParams } from '@hooks/useGetParams.ts';
 import { useQueryGetBoard } from '@pages/board/hooks/useQueryGetBoard.ts';
 import React from 'react';
-import { Column } from '../../../../../generated/graphql.tsx';
 
 export const Header = () => {
 	const boardId = useGetParams('boardId');
@@ -31,7 +31,14 @@ export const Header = () => {
 					statuses={statuses}
 				/>
 
-				{!loading && <Menu menuItems={[<UpdateBoard title={title} key={0} />]} />}
+				{!loading && (
+					<Menu
+						menuItems={[
+							<UpdateBoard title={title} key={0} />,
+							<RemoveBoard key={1} />,
+						]}
+					/>
+				)}
 			</div>
 		</div>
 	);

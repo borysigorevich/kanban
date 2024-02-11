@@ -19,14 +19,14 @@ export const MenuItem = ({
 	return (
 		<DropdownMenu.Item
 			className={cn(
-				'cursor-pointer rounded-lg p-2 outline-none transition hover:bg-gray-dark',
+				'group cursor-pointer rounded-lg p-2 outline-none transition hover:bg-gray-dark',
 				menuItemClassName
 			)}
 			onClick={onClick}
 		>
 			<Typography
 				variant={'body-l'}
-				className={cn('text-gray-medium', contentClassName)}
+				className={cn('text-gray-medium transition', contentClassName)}
 			>
 				{content}
 			</Typography>

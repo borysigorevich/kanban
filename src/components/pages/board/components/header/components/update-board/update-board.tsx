@@ -7,6 +7,7 @@ import { TextField } from '@components/ui/text-field';
 import { Typography } from '@components/ui/typography';
 import { useGetParams } from '@hooks/useGetParams.ts';
 import { useOpen } from '@hooks/useOpen.ts';
+import { QUERY_BOARD } from '@pages/board/gql/QUERY_BOARD.ts';
 import { onError } from '@utils/onError.ts';
 import React from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
@@ -44,6 +45,7 @@ export const UpdateBoard = ({ title }: EditBoardProps) => {
 				closeDialogWithMenu();
 				toast.success('Board updated successfully');
 			},
+			refetchQueries: [QUERY_BOARD],
 			onError,
 		});
 	};
