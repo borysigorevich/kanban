@@ -42,7 +42,7 @@ export const CreateBoard = () => {
 					'text-purple transition [text-transform:initial] group-hover:text-white'
 				}
 			>
-				+ Create New Board
+				+ Add New Board
 			</Typography>
 			<Dialog
 				open={isOpen}
@@ -62,7 +62,7 @@ export const CreateBoard = () => {
 						/>
 
 						<Button isLoading={loading} className={'mt-6'} type={'submit'}>
-							Create New Board
+							Add New Board
 						</Button>
 					</form>
 				</FormProvider>

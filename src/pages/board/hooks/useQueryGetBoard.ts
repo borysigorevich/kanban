@@ -28,7 +28,7 @@ export const useQueryGetBoard = (boardId: string) => {
 		}));
 	}, [data]);
 
-	const columns = data?.Board?.Columns || [];
+	const columns = useMemo(() => data?.Board?.Columns || [], [data]);
 
 	const [columnsWidthOrderedTasks, setColumnsWidthOrderedTasks] = useState<Column[]>(
 		[]
